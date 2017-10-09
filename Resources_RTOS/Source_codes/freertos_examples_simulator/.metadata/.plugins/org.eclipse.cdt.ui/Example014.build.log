@@ -1,0 +1,124 @@
+13:06:32 **** Rebuild of configuration Debug for project Example014 ****
+Info: Internal Builder is used for build
+gcc "-IE:\\fastBit\\courses\\RTOS\\course_src_v1\\simulator\\freertos_examples_simulator\\Example014" "-IE:\\fastBit\\courses\\RTOS\\course_src_v1\\simulator\\freertos_examples_simulator\\Example014\\FreeRTOSv9.0.0\\Source\\portable\\MSVC-MingW" "-IE:\\fastBit\\courses\\RTOS\\course_src_v1\\simulator\\freertos_examples_simulator\\Example014\\FreeRTOSv9.0.0\\Source\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o "FreeRTOSv9.0.0\\Source\\portable\\MemMang\\heap_4.o" "..\\FreeRTOSv9.0.0\\Source\\portable\\MemMang\\heap_4.c" 
+gcc "-IE:\\fastBit\\courses\\RTOS\\course_src_v1\\simulator\\freertos_examples_simulator\\Example014" "-IE:\\fastBit\\courses\\RTOS\\course_src_v1\\simulator\\freertos_examples_simulator\\Example014\\FreeRTOSv9.0.0\\Source\\portable\\MSVC-MingW" "-IE:\\fastBit\\courses\\RTOS\\course_src_v1\\simulator\\freertos_examples_simulator\\Example014\\FreeRTOSv9.0.0\\Source\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o main.o "..\\main.c" 
+In file included from ..\main.c:39:0:
+E:\fastBit\courses\RTOS\course_src_v1\simulator\freertos_examples_simulator\Example014\FreeRTOSv9.0.0\Source\include/FreeRTOS.h:828:27: error: unknown type name 'SemaphoreHandle_t'
+  #define xSemaphoreHandle SemaphoreHandle_t
+                           ^
+..\main.c:79:1: note: in expansion of macro 'xSemaphoreHandle'
+ xSemaphoreHandle xBinarySemaphore;
+ ^
+..\main.c: In function 'main':
+..\main.c:86:5: warning: implicit declaration of function 'vSemaphoreCreateBinary' [-Wimplicit-function-declaration]
+     vSemaphoreCreateBinary( xBinarySemaphore );
+     ^
+..\main.c:89:26: warning: comparison between pointer and integer
+     if( xBinarySemaphore != NULL )
+                          ^
+..\main.c: In function 'vHandlerTask':
+..\main.c:123:5: warning: implicit declaration of function 'xSemaphoreTake' [-Wimplicit-function-declaration]
+     xSemaphoreTake( xBinarySemaphore, 0 );
+     ^
+..\main.c: In function 'vPeriodicTask':
+..\main.c:51:33: warning: implicit declaration of function 'NVIC_SetPendingIRQ' [-Wimplicit-function-declaration]
+ #define mainTRIGGER_INTERRUPT() NVIC_SetPendingIRQ( mainSW_INTERRUPT_ID )
+                                 ^
+..\main.c:152:9: note: in expansion of macro 'mainTRIGGER_INTERRUPT'
+         mainTRIGGER_INTERRUPT();
+         ^
+..\main.c:48:34: error: 'IRQn_Type' undeclared (first use in this function)
+ #define mainSW_INTERRUPT_ID  ( ( IRQn_Type ) WDT_IRQn )
+                                  ^
+..\main.c:51:53: note: in expansion of macro 'mainSW_INTERRUPT_ID'
+ #define mainTRIGGER_INTERRUPT() NVIC_SetPendingIRQ( mainSW_INTERRUPT_ID )
+                                                     ^
+..\main.c:152:9: note: in expansion of macro 'mainTRIGGER_INTERRUPT'
+         mainTRIGGER_INTERRUPT();
+         ^
+..\main.c:48:34: note: each undeclared identifier is reported only once for each function it appears in
+ #define mainSW_INTERRUPT_ID  ( ( IRQn_Type ) WDT_IRQn )
+                                  ^
+..\main.c:51:53: note: in expansion of macro 'mainSW_INTERRUPT_ID'
+ #define mainTRIGGER_INTERRUPT() NVIC_SetPendingIRQ( mainSW_INTERRUPT_ID )
+                                                     ^
+..\main.c:152:9: note: in expansion of macro 'mainTRIGGER_INTERRUPT'
+         mainTRIGGER_INTERRUPT();
+         ^
+..\main.c:48:46: error: expected ')' before 'WDT_IRQn'
+ #define mainSW_INTERRUPT_ID  ( ( IRQn_Type ) WDT_IRQn )
+                                              ^
+..\main.c:51:53: note: in expansion of macro 'mainSW_INTERRUPT_ID'
+ #define mainTRIGGER_INTERRUPT() NVIC_SetPendingIRQ( mainSW_INTERRUPT_ID )
+                                                     ^
+..\main.c:152:9: note: in expansion of macro 'mainTRIGGER_INTERRUPT'
+         mainTRIGGER_INTERRUPT();
+         ^
+..\main.c: In function 'prvSetupSoftwareInterrupt':
+..\main.c:163:2: warning: implicit declaration of function 'NVIC_SetPriority' [-Wimplicit-function-declaration]
+  NVIC_SetPriority( mainSW_INTERRUPT_ID, mainSOFTWARE_INTERRUPT_PRIORITY );
+  ^
+..\main.c:48:34: error: 'IRQn_Type' undeclared (first use in this function)
+ #define mainSW_INTERRUPT_ID  ( ( IRQn_Type ) WDT_IRQn )
+                                  ^
+..\main.c:163:20: note: in expansion of macro 'mainSW_INTERRUPT_ID'
+  NVIC_SetPriority( mainSW_INTERRUPT_ID, mainSOFTWARE_INTERRUPT_PRIORITY );
+                    ^
+..\main.c:48:46: error: expected ')' before 'WDT_IRQn'
+ #define mainSW_INTERRUPT_ID  ( ( IRQn_Type ) WDT_IRQn )
+                                              ^
+..\main.c:163:20: note: in expansion of macro 'mainSW_INTERRUPT_ID'
+  NVIC_SetPriority( mainSW_INTERRUPT_ID, mainSOFTWARE_INTERRUPT_PRIORITY );
+                    ^
+..\main.c:166:2: warning: implicit declaration of function 'NVIC_EnableIRQ' [-Wimplicit-function-declaration]
+  NVIC_EnableIRQ( mainSW_INTERRUPT_ID );
+  ^
+..\main.c:48:46: error: expected ')' before 'WDT_IRQn'
+ #define mainSW_INTERRUPT_ID  ( ( IRQn_Type ) WDT_IRQn )
+                                              ^
+..\main.c:166:18: note: in expansion of macro 'mainSW_INTERRUPT_ID'
+  NVIC_EnableIRQ( mainSW_INTERRUPT_ID );
+                  ^
+..\main.c: In function 'WDT_Handler':
+..\main.c:175:5: warning: implicit declaration of function 'xSemaphoreGiveFromISR' [-Wimplicit-function-declaration]
+     xSemaphoreGiveFromISR( xBinarySemaphore, &xHigherPriorityTaskWoken );
+     ^
+..\main.c:54:31: warning: implicit declaration of function 'NVIC_ClearPendingIRQ' [-Wimplicit-function-declaration]
+ #define mainCLEAR_INTERRUPT() NVIC_ClearPendingIRQ( mainSW_INTERRUPT_ID )
+                               ^
+..\main.c:179:5: note: in expansion of macro 'mainCLEAR_INTERRUPT'
+     mainCLEAR_INTERRUPT();
+     ^
+..\main.c:48:34: error: 'IRQn_Type' undeclared (first use in this function)
+ #define mainSW_INTERRUPT_ID  ( ( IRQn_Type ) WDT_IRQn )
+                                  ^
+..\main.c:54:53: note: in expansion of macro 'mainSW_INTERRUPT_ID'
+ #define mainCLEAR_INTERRUPT() NVIC_ClearPendingIRQ( mainSW_INTERRUPT_ID )
+                                                     ^
+..\main.c:179:5: note: in expansion of macro 'mainCLEAR_INTERRUPT'
+     mainCLEAR_INTERRUPT();
+     ^
+..\main.c:48:46: error: expected ')' before 'WDT_IRQn'
+ #define mainSW_INTERRUPT_ID  ( ( IRQn_Type ) WDT_IRQn )
+                                              ^
+..\main.c:54:53: note: in expansion of macro 'mainSW_INTERRUPT_ID'
+ #define mainCLEAR_INTERRUPT() NVIC_ClearPendingIRQ( mainSW_INTERRUPT_ID )
+                                                     ^
+..\main.c:179:5: note: in expansion of macro 'mainCLEAR_INTERRUPT'
+     mainCLEAR_INTERRUPT();
+     ^
+In file included from E:\fastBit\courses\RTOS\course_src_v1\simulator\freertos_examples_simulator\Example014\FreeRTOSv9.0.0\Source\include/portable.h:94:0,
+                 from E:\fastBit\courses\RTOS\course_src_v1\simulator\freertos_examples_simulator\Example014\FreeRTOSv9.0.0\Source\include/FreeRTOS.h:104,
+                 from ..\main.c:39:
+E:\fastBit\courses\RTOS\course_src_v1\simulator\freertos_examples_simulator\Example014\FreeRTOSv9.0.0\Source\portable\MSVC-MingW/portmacro.h:121:56: warning: 'return' with a value, in function returning void
+ #define portEND_SWITCHING_ISR( x ) portYIELD_FROM_ISR( ( x ) )
+                                                        ^
+E:\fastBit\courses\RTOS\course_src_v1\simulator\freertos_examples_simulator\Example014\FreeRTOSv9.0.0\Source\portable\MSVC-MingW/portmacro.h:120:40: note: in definition of macro 'portYIELD_FROM_ISR'
+ #define portYIELD_FROM_ISR( x ) return x
+                                        ^
+..\main.c:191:5: note: in expansion of macro 'portEND_SWITCHING_ISR'
+     portEND_SWITCHING_ISR( xHigherPriorityTaskWoken );
+     ^
+
+13:06:33 Build Finished (took 968ms)
+

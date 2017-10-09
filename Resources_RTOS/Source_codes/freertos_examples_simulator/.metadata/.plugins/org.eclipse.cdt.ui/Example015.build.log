@@ -1,0 +1,5 @@
+12:53:24 **** Clean-only build of configuration Debug for project Example015 ****
+rm -rf FreeRTOSv9.0.0/Source/portable/MemMang/heap_4.d Run-time-stats-utils.o FreeRTOSv9.0.0/Source/queue.d Run-time-stats-utils.d Example015.exe main.o FreeRTOSv9.0.0/Source/queue.o FreeRTOSv9.0.0/Source/croutine.d FreeRTOSv9.0.0/Source/tasks.d FreeRTOSv9.0.0/Source/tasks.o FreeRTOSv9.0.0/Source/portable/MemMang/heap_4.o FreeRTOSv9.0.0/Source/portable/MSVC-MingW/port.d FreeRTOSv9.0.0/Source/portable/MSVC-MingW/port.o FreeRTOSv9.0.0/Source/list.d FreeRTOSv9.0.0/Source/event_groups.d FreeRTOSv9.0.0/Source/timers.o main.d FreeRTOSv9.0.0/Source/event_groups.o FreeRTOSv9.0.0/Source/croutine.o FreeRTOSv9.0.0/Source/list.o FreeRTOSv9.0.0/Source/timers.d 
+
+12:53:24 Build Finished (took 93ms)
+

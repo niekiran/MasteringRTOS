@@ -1,0 +1,282 @@
+/*
+    FreeRTOS V6.0.5 - Copyright (C) 2009 Real Time Engineers Ltd.
+
+    This file is part of the FreeRTOS distribution.
+
+    FreeRTOS is free software; you can redistribute it and/or modify it under
+    the terms of the GNU General Public License (version 2) as published by the
+    Free Software Foundation AND MODIFIED BY the FreeRTOS exception.
+    ***NOTE*** The exception to the GPL is included to allow you to distribute
+    a combined work that includes FreeRTOS without being obliged to provide the
+    source code for proprietary components outside of the FreeRTOS kernel.
+    FreeRTOS is distributed in the hope that it will be useful, but WITHOUT
+    ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+    FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+    more details. You should have received a copy of the GNU General Public
+    License and the FreeRTOS license exception along with FreeRTOS; if not it
+    can be viewed here: http://www.freertos.org/a00114.html and also obtained
+    by writing to Richard Barry, contact details for whom are available on the
+    FreeRTOS WEB site.
+
+    1 tab == 4 spaces!
+
+    http://www.FreeRTOS.org - Documentation, latest information, license and
+    contact details.
+
+    http://www.SafeRTOS.com - A version that is certified for use in safety
+    critical systems.
+
+    http://www.OpenRTOS.com - Commercial support, development, porting,
+    licensing and training services.
+*/
+
+/* Standard includes. */
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+
+
+/* FreeRTOS includes. */
+#include "FreeRTOS.h"
+#include "task.h"
+#include "queue.h"
+
+#define TEMP_CODE			1
+#define DISP_CODE			2
+#define OTHER_CODE          3
+#define MAX_LEN				10
+
+/* vGenSenderHandler is a task function which takes care of putting data in to the queue. vGenReceiverHandler is task function which takes care of getting data from the queue */
+static void vGenSenderHandler( void *pvParameters );
+static void vGenReceiverHandler( void *pvParameters );
+
+
+void vAssertCalled( unsigned long ulLine, const char * const pcFileName );
+
+/*-----------------------------------------------------------*/
+
+/* Declare a variable of type xQueueHandle.  This is used to store the queue
+that is accessed by all three tasks. */
+xQueueHandle xQueue;
+
+/* Define the structure type that will be passed on the queue. */
+typedef struct
+{
+	unsigned char code;
+	int data[MAX_LEN];
+} xData;
+
+/* Declare 3 variables of type xData that will be passed on the queue. */
+static const xData xStructsToSend[ 4 ] =
+{
+	{{ TEMP_CODE, 33,22 }}, /* Used by temp monitoring task. */
+	{ DISP_CODE, 64,-32,10 }, /* Used by display monitoring task. */
+	{ OTHER_CODE, 2017,2016 }  /* Used by other task. */
+};
+
+/*-----------------------------------------------------------*/
+
+int main( void )
+{
+
+    /* The queue is created to hold a maximum of 3 structures of type xData. */
+    xQueue = xQueueCreate( 3, sizeof( xData ) );
+
+	if( xQueue != NULL )
+	{
+		/* Create 3 instances of the task that will write to the queue.  The
+		parameter is used to pass the structure that the task should write to the
+		queue, all 3 sender tasks are created at priority 2 which is above the priority of the receiver. */
+		xTaskCreate( vGenSenderHandler, "Temp-mon-task", 240, ( void * ) &( xStructsToSend[ 0 ] ), 2, NULL );
+
+		xTaskCreate( vGenSenderHandler, "disp-mon-task", 240, ( void * ) &( xStructsToSend[ 1 ] ), 2, NULL );
+
+		xTaskCreate( vGenSenderHandler, "other-task", 240, ( void * ) &( xStructsToSend[ 2 ] ), 2, NULL );
+
+		/* Create the task that will read from the queue.  The task is created with
+		priority 1, so below the priority of the sender tasks. */
+		xTaskCreate( vGenReceiverHandler, "Receiver-task", 240, NULL, 1, NULL );
+
+		/* Start the scheduler so the created tasks start executing. */
+		vTaskStartScheduler();
+	}
+	else
+	{
+		/* The queue could not be created. */
+	}
+
+    /* If all is well we will never reach here as the scheduler will now be
+    running the tasks.  If we do reach here then it is likely that there was
+    insufficient heap memory available for a resource to be created. */
+	for( ;; );
+}
+/*-----------------------------------------------------------*/
+
+static void vGenSenderHandler( void *pvParameters )
+{
+portBASE_TYPE xStatus;
+const portTickType xTicksToWait = 100 / portTICK_RATE_MS;
+
+	/* As per most tasks, this task is implemented within an infinite loop. */
+	for( ;; )
+	{
+		/* The first parameter is the queue to which data is being sent.  The
+		queue was created before the scheduler was started, so before this task
+		started to execute.
+
+		The second parameter is the address of the structure being sent.  The
+		address is passed in as the task parameter.
+
+		The third parameter is the Block time - the time the task should be kept
+		in the Blocked state to wait for space to become available on the queue
+		should the queue already be full.  A block time is specified as the queue
+		will become full.  Items will only be removed from the queue when both
+		sending tasks are in the Blocked state.. */
+		xStatus = xQueueSendToBack( xQueue, pvParameters, xTicksToWait );
+
+
+		if( xStatus != pdPASS )
+		{
+			/* We could not write to the queue because it was full - this must
+			be an error as the receiving task should make space in the queue
+			as soon as both sending tasks are in the Blocked state. */
+			printf( "Could not send to the queue.\n" );
+		}else
+		{
+			printf("Sender: data sent \n");
+		}
+
+		/* Allow the other sender task to execute. */
+		taskYIELD();
+	}
+}
+/*-----------------------------------------------------------*/
+
+static void vGenReceiverHandler( void *pvParameters )
+{
+/* Declare the structure that will hold the values received from the queue. */
+xData xReceivedStructure;
+portBASE_TYPE xStatus;
+
+	/* This task is also defined within an infinite loop. */
+	for( ;; )
+	{
+		/* As this task only runs when the sending tasks are in the Blocked state,
+		and the sending tasks only block when the queue is full, this task should
+		always find the queue to be full.  3 is the queue length. */
+		if( uxQueueMessagesWaiting( xQueue ) == 3 )
+		{
+			printf( "Queue should have been full!\n" );
+		}
+
+		/* The first parameter is the queue from which data is to be received.  The
+		queue is created before the scheduler is started, and therefore before this
+		task runs for the first time.
+
+		The second parameter is the buffer into which the received data will be
+		placed.  In this case the buffer is simply the address of a variable that
+		has the required size to hold the received structure.
+
+		The last parameter is the block time - the maximum amount of time that the
+		task should remain in the Blocked state to wait for data to be available
+		should the queue already be empty.  A block time is not necessary as this
+		task will only run when the queue is full so data will always be available. */
+		xStatus = xQueueReceive( xQueue, &xReceivedStructure, 0 );
+
+		if( xStatus == pdPASS )
+		{
+			/* Data was successfully received from the queue, print out the received
+			value and the source of the value. */
+			if( xReceivedStructure.code == TEMP_CODE )
+			{
+				printf( "Data From Temp-mon-task = %d,%d \n", xReceivedStructure.data[0],xReceivedStructure.data[1] );
+			}
+			else if (xReceivedStructure.code == DISP_CODE)
+			{
+				printf( "Data From disp-mon-task = %d,%d,%d \n", xReceivedStructure.data[0],xReceivedStructure.data[1], xReceivedStructure.data[2]);
+			}
+			else if (xReceivedStructure.code == OTHER_CODE)
+			{
+				printf( "Data From other-task = %d,%d \n", xReceivedStructure.data[0],xReceivedStructure.data[1] );
+			}else
+			{
+				printf( "in-valid code \n");
+			}
+		}
+		else
+		{
+			/* We did not receive anything from the queue.  This must be an error
+			as this task should only run when the queue is full. */
+			printf( "Could not receive from the queue.\n" );
+		}
+	}
+}
+/*-----------------------------------------------------------*/
+
+void vApplicationMallocFailedHook( void )
+{
+	/* This function will only be called if an API call to create a task, queue
+	or semaphore fails because there is too little heap RAM remaining. */
+	for( ;; );
+}
+/*-----------------------------------------------------------*/
+
+void vApplicationStackOverflowHook( xTaskHandle *pxTask, signed char *pcTaskName )
+{
+	/* This function will only be called if a task overflows its stack.  Note
+	that stack overflow checking does slow down the context switch
+	implementation. */
+	for( ;; );
+}
+/*-----------------------------------------------------------*/
+
+void vApplicationIdleHook( void )
+{
+	/* This example does not use the idle hook to perform any processing. */
+}
+/*-----------------------------------------------------------*/
+
+void vApplicationTickHook( void )
+{
+	/* This example does not use the tick hook to perform any processing. */
+}
+
+
+static portBASE_TYPE xTraceRunning = pdFALSE;
+void vAssertCalled( unsigned long ulLine, const char * const pcFileName )
+{
+static portBASE_TYPE xPrinted = pdFALSE;
+volatile uint32_t ulSetToNonZeroInDebuggerToContinue = 0;
+
+	/* Parameters are not used. */
+	( void ) ulLine;
+	( void ) pcFileName;
+
+ 	taskENTER_CRITICAL();
+	{
+		/* Stop the trace recording. */
+		if( xPrinted == pdFALSE )
+		{
+			xPrinted = pdTRUE;
+			if( xTraceRunning == pdTRUE )
+			{
+			//	vTraceStop();
+				//prvSaveTraceFile();
+			}
+		}
+
+		/* You can step out of this function to debug the assertion by using
+		the debugger to set ulSetToNonZeroInDebuggerToContinue to a non-zero
+		value. */
+		while( ulSetToNonZeroInDebuggerToContinue == 0 )
+		{
+			__asm volatile( "NOP" );
+			__asm volatile( "NOP" );
+		}
+	}
+	taskEXIT_CRITICAL();
+}
+/*-----------------------------------------------------------*/
+
+
+

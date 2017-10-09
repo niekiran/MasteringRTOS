@@ -1,0 +1,79 @@
+Release notes, Tracealyzer Recorder Library v3.0.9
+June 30, 2016. Percepio AB.
+
+Changed v3.0.7 -> v3.0.9
+- Fixed type mismatch for extern declaration
+- Fixed ISR tailchaining compile bug for certain hardware ports 
+Changed v3.0.5 -> v3.0.7
+- Added support for FreeRTOS v9
+- Fixed null pointer usage when timer creation failed
+- Moved frequency calculation for CortexM
+- Fixed mostly cosmetic issue regarding tail-chained interrupts and pending task switches
+Changed v3.0.4 -> v3.0.5
+- Fixed compile issue for systick based timestamp sources.
+- Fixed potential frequency calculation issue.
+Changed v3.0.3 -> v3.0.4
+- Fix for timestamps based on free running clocks.
+Changed v3.0.2 -> v3.0.3
+- Better support for Low Power Mode / Tickless idle.
+- Default trace buffer mode is now RingBuffer instead of StopWhenFull.
+Changed v3.0.1 -> v3.0.2
+- Bug fix related to nested ISRs.
+- Removed "defined but not used" warning for heapMemUsage.
+- Fixed float value assignment warning.
+Changed v3.0.0 -> v3.0.1
+- Fixed ISR preemption handling.
+Changes v2.7.8 -> v3.0.0
+- No recorder changes.
+Changes v2.7.7 -> v2.7.8
+- New macro added that is used by timers in FreeRTOS v8.2.2.
+Changes v2.7.5 -> v2.7.7
+- Added support for TaskNotify
+- Updated MPLAB plugin
+Changes v2.7.4 -> v2.7.5
+- Corrected Mono/Linux support.
+- Corrected "Export Actor Data" - now respects time-formatting.
+- Simplified signup for evaluation, opens "enter license key" after registration.
+- No changes in recorder (still labeled v2.7.4).
+Changes v2.7.0 -> v2.7.4
+- Improved integration with Atmel Studio (see http://percepio.com/2015/02/10/support-for-all-atmel-debuggers/)
+- Included plugin and demo projects for MPLAB X on PIC32MX and PIC32MZ (see http://percepio.com/2014/11/19/mplab-x-ide/)
+- Included demo project for Rowley Crossworks (on STM32F4xx).
+- Added port for ARM Cortex-M0/M0+ (since v2.6 the existing Cortex-M port uses the DWT unit, which is only exists on M3, M4 and M7).
+Changes v2.6.0 -> v2.7.0
+- Changed file structure to make kernel integration easier (see updated guide in user manual)
+- Added vTraceTaskInstanceFinish and vTraceTaskInstanceFinishDirect, allowing the user to control the grouping of events into "task instances".
+- Added vTraceSetStopHook, that defines a function pointer (i.e., a hook) called when the trace buffer gets full.
+- Added parameter "pendingISR" to vTraceStoreISREnd.
+- Updated prvTraceInitCortexM to verify that the DWT unit is supported by the specific chip.
+- Added official ports for Microchip PIC32MX and PIC32MZ (including a new plugin for MPLAB X IDE).
+- Added a port for ARM Cortex A9.
+- Fixed backwards compability with FreeRTOS v7.x
+- Fixed compilation problem (on non-GCC compilers and Cortex-M port) due to GCC-style assembly code. Replaced by CMSIS library calls.
+- Fixed malloc/free tracing. Now the absolute allocation level is shown correctly.
+
+Changes v2.5.1 -> v2.6.0
+- Support for FreeRTOS v8, including new Event Group objects.
+- Dynamic memory allocation can now be traced (i.e, heap functions).
+- Tracing of Timer commands, including pended/delegated functions from ISRs.
+- Integration with FreeRTOS Queue Registry. If you are using the Queue Registry, it is no longer required to also set the name in the recorder (e.g, using vTraceSetQueueName). 
+- Support for 16 bit object numbers, which allows for more than 255 objects of each type. This was previously a limitation. Note that you need to enable a setting in trcConfig.h to enable this.
+- Restructured trcConfig.h so that the basic settings are shown in an initial section, and advanced settings later.
+- Moved selection of hardware port from trcHardwarePort.h to trcConfig.h, so all settings are now made in trcConfig.h.
+- Improved detection of interrupt tailchaining on ARM Cortex-M devices.
+- Support for an alternative type of critical sections inside the recorder (USE_PRIMASK_CS), that allows user events anywhere, also in high priority interrupt handlers.
+- Timestamping on Cortex-M is now based on DWT cycle counter instead of SysTick.
+
+Changes v2.5.0 -> v2.5.1:
+- Added/restored several hardware ports (now kernel agnostic)
+
+Changes v2.4.1 -> v2.5.0:
+
+- Support for FreeRTOS "tickless idle" low power mode. This requires an updated viewer application (v2.5.0 or later).
+- Added vTraceClearError in trcUser.c, allows for ignoring error messages from the recorder and force the tracing to resume.
+- Corrected the documentation of xTraceGetLastError. The error message is NOT cleared on read.
+- The recorder now tests the hardware timer (to determine if initalized) before reading the reload register.
+- Removed the last references to the status monitor task and Win32 file save functions.
+- Hardware port layer is now OS independent; several hardware ports are temporarily disabled and needs to be updated.
+
+For questions, contact support@percepio.com or sales@percepio.com

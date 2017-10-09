@@ -1,0 +1,23 @@
+15:39:12 **** Incremental Build of configuration Debug for project Example012 ****
+Info: Internal Builder is used for build
+gcc "-IE:\\fastBit\\courses\\RTOS\\course_src_v1\\simulator\\freertos_examples_simulator\\Example012" "-IE:\\fastBit\\courses\\RTOS\\course_src_v1\\simulator\\freertos_examples_simulator\\Example012\\FreeRTOSv9.0.0\\Source\\include" "-IE:\\fastBit\\courses\\RTOS\\course_src_v1\\simulator\\freertos_examples_simulator\\Example012\\FreeRTOSv9.0.0\\Source\\portable\\MSVC-MingW" -O0 -g3 -Wall -c -fmessage-length=0 -o main.o "..\\main.c" 
+..\main.c:72:2: warning: missing braces around initializer [-Wmissing-braces]
+  { TEMP_CODE, 33,22 }, /* Used by temp monitoring task. */
+  ^
+..\main.c:72:2: note: (near initialization for 'xStructsToSend[0]')
+..\main.c:73:2: warning: missing braces around initializer [-Wmissing-braces]
+  { DISP_CODE, 64,-32,10 }, /* Used by display monitoring task. */
+  ^
+..\main.c:73:2: note: (near initialization for 'xStructsToSend[1]')
+..\main.c:74:2: warning: missing braces around initializer [-Wmissing-braces]
+  { OTHER_CODE, 2017,2016 }  /* Used by other task. */
+  ^
+..\main.c:74:2: note: (near initialization for 'xStructsToSend[2]')
+..\main.c:71:1: warning: missing braces around initializer [-Wmissing-braces]
+ {
+ ^
+..\main.c:71:1: note: (near initialization for 'xStructsToSend')
+gcc -o Example012.exe "FreeRTOSv9.0.0\\Source\\croutine.o" "FreeRTOSv9.0.0\\Source\\event_groups.o" "FreeRTOSv9.0.0\\Source\\list.o" "FreeRTOSv9.0.0\\Source\\portable\\MSVC-MingW\\port.o" "FreeRTOSv9.0.0\\Source\\portable\\MemMang\\heap_4.o" "FreeRTOSv9.0.0\\Source\\queue.o" "FreeRTOSv9.0.0\\Source\\tasks.o" "FreeRTOSv9.0.0\\Source\\timers.o" Run-time-stats-utils.o main.o -lwinmm 
+Info: Nothing to build for Example012
+Info: Nothing to build for Example013
+Info: Nothing to build for Example016

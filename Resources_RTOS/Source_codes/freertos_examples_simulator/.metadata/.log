@@ -1,0 +1,154 @@
+!SESSION 2017-02-20 11:01:43.462 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_112
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2017-02-20 11:03:02.148
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\kiran'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:03:54.983
+!MESSAGE Indexed 'Example001' (0 sources, 0 headers) in 0.004 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:06:41.056
+!MESSAGE Indexed 'Example002' (0 sources, 0 headers) in 0.001 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:07:48.090
+!MESSAGE Indexed 'Example003' (0 sources, 0 headers) in 0.001 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:08:37.870
+!MESSAGE Indexed 'Example004' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:08:50.606
+!MESSAGE Indexed 'Example005' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:09:00.159
+!MESSAGE Indexed 'Example006' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:09:10.867
+!MESSAGE Indexed 'Example007' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:09:23.509
+!MESSAGE Indexed 'Example008' (0 sources, 0 headers) in 0.001 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:09:34.049
+!MESSAGE Indexed 'Example009' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:09:44.162
+!MESSAGE Indexed 'Example010' (0 sources, 0 headers) in 0.001 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:09:55.718
+!MESSAGE Indexed 'Example011' (0 sources, 0 headers) in 0.001 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:10:25.819
+!MESSAGE Indexed 'Example012' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:10:38.255
+!MESSAGE Indexed 'Example013' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:10:48.514
+!MESSAGE Indexed 'Example014' (0 sources, 0 headers) in 0.001 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:11:00.025
+!MESSAGE Indexed 'Example015' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:11:14.773
+!MESSAGE Indexed 'Example016' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:11:28.153
+!MESSAGE Indexed 'Example017' (0 sources, 0 headers) in 0.001 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:15:46.358
+!MESSAGE Indexed 'Example001' (14 sources, 101 headers) in 2.14 sec: 34,384 declarations; 55,010 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:16:34.684
+!MESSAGE Indexed 'Example002' (14 sources, 101 headers) in 1.84 sec: 34,384 declarations; 55,010 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:18:41.342
+!MESSAGE Indexed 'Example001' (14 sources, 101 headers) in 1.91 sec: 34,384 declarations; 55,010 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY ilg.gnuarmeclipse.packs.data 4 1 2017-02-20 11:24:33.652
+!MESSAGE File .repos.xml does not exist, using defaults.
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:29:21.409
+!MESSAGE Indexed 'Example002' (10 sources, 101 headers) in 1.88 sec: 34,281 declarations; 54,386 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:29:56.626
+!MESSAGE Indexed 'Example003' (10 sources, 101 headers) in 1.86 sec: 34,281 declarations; 54,386 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:30:33.637
+!MESSAGE Indexed 'Example004' (10 sources, 101 headers) in 1.83 sec: 34,281 declarations; 54,386 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:31:57.907
+!MESSAGE Indexed 'Example005' (10 sources, 101 headers) in 1.8 sec: 34,281 declarations; 54,386 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:32:32.593
+!MESSAGE Indexed 'Example006' (10 sources, 101 headers) in 1.8 sec: 34,281 declarations; 54,386 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:34:27.438
+!MESSAGE Indexed 'Example007' (10 sources, 101 headers) in 1.8 sec: 34,281 declarations; 54,386 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:35:02.657
+!MESSAGE Indexed 'Example008' (10 sources, 101 headers) in 1.96 sec: 34,281 declarations; 54,386 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:36:06.903
+!MESSAGE Indexed 'Example009' (10 sources, 101 headers) in 1.78 sec: 34,281 declarations; 54,386 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:37:30.713
+!MESSAGE Indexed 'Example004' (10 sources, 101 headers) in 2.1 sec: 34,281 declarations; 54,386 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:38:28.004
+!MESSAGE Indexed 'Example009' (10 sources, 101 headers) in 1.8 sec: 34,281 declarations; 54,386 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:40:29.033
+!MESSAGE Indexed 'Example010' (10 sources, 101 headers) in 1.72 sec: 34,281 declarations; 54,386 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:41:15.209
+!MESSAGE Indexed 'Example011' (10 sources, 101 headers) in 1.7 sec: 34,281 declarations; 54,386 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:41:49.998
+!MESSAGE Indexed 'Example012' (10 sources, 116 headers) in 1.95 sec: 34,903 declarations; 55,060 references; 0 unresolved inclusions; 114 syntax errors; 1 unresolved names (0.0011%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:42:13.184
+!MESSAGE Indexed 'Example012' (10 sources, 101 headers) in 2.15 sec: 34,281 declarations; 54,386 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:42:53.117
+!MESSAGE Indexed 'Example013' (10 sources, 101 headers) in 1.8 sec: 34,281 declarations; 54,386 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:43:19.545
+!MESSAGE Indexed 'Example014' (10 sources, 116 headers) in 1.85 sec: 34,903 declarations; 55,060 references; 0 unresolved inclusions; 114 syntax errors; 1 unresolved names (0.0011%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:43:50.663
+!MESSAGE Indexed 'Example014' (10 sources, 101 headers) in 1.84 sec: 34,281 declarations; 54,386 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:44:28.004
+!MESSAGE Indexed 'Example015' (10 sources, 101 headers) in 1.74 sec: 34,281 declarations; 54,386 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:44:58.214
+!MESSAGE Indexed 'Example016' (10 sources, 116 headers) in 2.05 sec: 34,903 declarations; 55,060 references; 0 unresolved inclusions; 114 syntax errors; 1 unresolved names (0.0011%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:45:23.368
+!MESSAGE Indexed 'Example016' (10 sources, 101 headers) in 1.89 sec: 34,281 declarations; 54,386 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-20 11:46:03.375
+!MESSAGE Indexed 'Example017' (10 sources, 101 headers) in 1.81 sec: 34,281 declarations; 54,386 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+!SESSION 2017-02-20 14:36:26.743 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_112
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2017-02-20 14:36:49.198
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\kiran'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.

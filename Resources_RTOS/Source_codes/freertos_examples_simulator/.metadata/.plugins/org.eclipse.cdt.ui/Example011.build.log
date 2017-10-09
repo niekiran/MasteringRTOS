@@ -1,0 +1,7 @@
+15:32:42 **** Incremental Build of configuration Debug for project Example011 ****
+Info: Internal Builder is used for build
+gcc "-IE:\\fastBit\\courses\\RTOS\\course_src_v1\\simulator\\freertos_examples_simulator\\Example011" "-IE:\\fastBit\\courses\\RTOS\\course_src_v1\\simulator\\freertos_examples_simulator\\Example011\\FreeRTOSv9.0.0\\Source\\include" "-IE:\\fastBit\\courses\\RTOS\\course_src_v1\\simulator\\freertos_examples_simulator\\Example011\\FreeRTOSv9.0.0\\Source\\portable\\MSVC-MingW" -O0 -g3 -Wall -c -fmessage-length=0 -o main.o "..\\main.c" 
+gcc -o Example011.exe "FreeRTOSv9.0.0\\Source\\croutine.o" "FreeRTOSv9.0.0\\Source\\event_groups.o" "FreeRTOSv9.0.0\\Source\\list.o" "FreeRTOSv9.0.0\\Source\\portable\\MSVC-MingW\\port.o" "FreeRTOSv9.0.0\\Source\\portable\\MemMang\\heap_4.o" "FreeRTOSv9.0.0\\Source\\queue.o" "FreeRTOSv9.0.0\\Source\\tasks.o" "FreeRTOSv9.0.0\\Source\\timers.o" Run-time-stats-utils.o main.o -lwinmm 
+
+15:32:43 Build Finished (took 1s.222ms)
+
