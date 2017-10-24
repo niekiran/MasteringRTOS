@@ -1,0 +1,25 @@
+18:00:01 **** Incremental Build of configuration Debug for project gpio_driver_1 ****
+make all 
+Building file: ../src/main.c
+Invoking: GNU ARM Cross C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DSTM32F446xx -DTRACE -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f4xx" -std=gnu11 -MMD -MP -MF"src/main.d" -MT"src/main.o" -c -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: gpio_driver_1.elf
+Invoking: GNU ARM Cross C++ Linker
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -T mem.ld -T libs.ld -T sections.ld -nostartfiles -Xlinker --gc-sections -L"../ldscripts" -Wl,-Map,"gpio_driver_1.map" --specs=nano.specs -o "gpio_driver_1.elf"  ./system/src/stm32f4xx/gpio_driver.o  ./system/src/newlib/_cxx.o ./system/src/newlib/_exit.o ./system/src/newlib/_sbrk.o ./system/src/newlib/_startup.o ./system/src/newlib/_syscalls.o ./system/src/newlib/assert.o  ./system/src/diag/Trace.o ./system/src/diag/trace_impl.o  ./system/src/cortexm/_initialize_hardware.o ./system/src/cortexm/_reset_hardware.o ./system/src/cortexm/exception_handlers.o  ./system/src/cmsis/startup_stm32f446xx.o ./system/src/cmsis/system_stm32f4xx.o  ./src/main.o   
+Finished building target: gpio_driver_1.elf
+ 
+Invoking: GNU ARM Cross Create Flash Image
+arm-none-eabi-objcopy -O ihex "gpio_driver_1.elf"  "gpio_driver_1.hex"
+Finished building: gpio_driver_1.hex
+ 
+Invoking: GNU ARM Cross Print Size
+arm-none-eabi-size --format=berkeley "gpio_driver_1.elf"
+   text	   data	    bss	    dec	    hex	filename
+   4155	    160	    412	   4727	   1277	gpio_driver_1.elf
+Finished building: gpio_driver_1.siz
+ 
+
+18:00:02 Build Finished (took 1s.144ms)
+

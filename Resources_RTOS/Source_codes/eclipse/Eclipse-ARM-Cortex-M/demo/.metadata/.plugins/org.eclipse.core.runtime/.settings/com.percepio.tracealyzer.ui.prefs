@@ -1,0 +1,4 @@
+eclipse.preferences.version=1
+traceDirectory=E\:\\Workspace\\EclipseWorkspace\\demo\\FreeRTOS-HelloWorld\\traces
+tracealyzerPath=E\:\\Workspace\\Software&Toolchain\\Percepio\\Tracealyzer for FreeRTOS\\TzForFreeRTOS.exe
+tracealyzerPreviousPaths=C\:\\Program Files (x86)\\Percepio;E\:\\Workspace\\Software&Toolchain\\Percepio;E\:\\Workspace\\Software&Toolchain\\Percepio\\Tracealyzer for FreeRTOS\\TzForFreeRTOS.exe

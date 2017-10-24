@@ -1,0 +1,7 @@
+16:57:11 **** Clean-only build of configuration Debug for project STM32F407x_GPIO_Driver ****
+make clean 
+rm -rf  ./system/src/stm32f4xx/gpio_driver.o  ./system/src/newlib/_cxx.o ./system/src/newlib/_exit.o ./system/src/newlib/_sbrk.o ./system/src/newlib/_startup.o ./system/src/newlib/_syscalls.o ./system/src/newlib/assert.o  ./system/src/diag/Trace.o ./system/src/diag/trace_impl.o  ./system/src/cortexm/_initialize_hardware.o ./system/src/cortexm/_reset_hardware.o ./system/src/cortexm/exception_handlers.o  ./system/src/cmsis/startup_stm32f446xx.o ./system/src/cmsis/system_stm32f4xx.o  ./src/main.o  STM32F407x_GPIO_Driver.hex  STM32F407x_GPIO_Driver.siz  ./system/src/cmsis/startup_stm32f446xx.d  ./system/src/stm32f4xx/gpio_driver.d  ./system/src/newlib/_exit.d ./system/src/newlib/_sbrk.d ./system/src/newlib/_startup.d ./system/src/newlib/_syscalls.d ./system/src/newlib/assert.d  ./system/src/diag/Trace.d ./system/src/diag/trace_impl.d  ./system/src/cortexm/_initialize_hardware.d ./system/src/cortexm/_reset_hardware.d ./system/src/cortexm/exception_handlers.d  ./system/src/cmsis/system_stm32f4xx.d  ./src/main.d  ./system/src/newlib/_cxx.d  STM32F407x_GPIO_Driver.elf
+ 
+
+16:57:12 Build Finished (took 863ms)
+

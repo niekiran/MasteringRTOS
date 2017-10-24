@@ -1,0 +1,9 @@
+16:57:14 **** Build of configuration Debug for project FreeRTOS-HelloWorld ****
+make all 
+Building file: ../system/src/newlib/_cxx.cpp
+Invoking: GNU ARM Cross C++ Compiler
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DTRACE -DOS_USE_TRACE_SEMIHOSTING_DEBUG -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f4xx" -std=gnu++11 -fabi-version=0 -MMD -MP -MF"system/src/newlib/_cxx.d" -MT"system/src/newlib/_cxx.o" -c -o "system/src/newlib/_cxx.o" "../system/src/newlib/_cxx.cpp"
+Command canceled
+
+16:57:17 Build Cancelled (took 2s.884ms)
+
