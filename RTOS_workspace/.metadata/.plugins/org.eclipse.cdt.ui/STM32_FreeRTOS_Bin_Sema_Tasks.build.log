@@ -1,0 +1,7 @@
+11:27:58 **** Clean-only build of configuration Debug for project STM32_FreeRTOS_Bin_Sema_Tasks ****
+make -j4 clean 
+rm -rf *
+ 
+
+11:27:58 Build Finished (took 448ms)
+

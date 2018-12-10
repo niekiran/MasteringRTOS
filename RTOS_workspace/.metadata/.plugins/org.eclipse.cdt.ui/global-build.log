@@ -1,0 +1,622 @@
+19:32:54 **** Incremental Build of configuration Debug for project STM32_FreeRTOS_Queue_Processing ****
+make -j4 all 
+Building file: ../src/main.c
+Invoking: MCU GCC Compiler
+D:\Workspace\RTOS_workspace\STM32_FreeRTOS_Queue_Processing\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -DDEBUG -DSTM32F446xx -DUSE_STDPERIPH_DRIVER -I"D:/Workspace/RTOS_workspace/STM32_FreeRTOS_Queue_Processing/StdPeriph_Driver/inc" -I"D:/Workspace/RTOS_workspace/STM32_FreeRTOS_Queue_Processing/Config" -I"D:/Workspace/RTOS_workspace/STM32_FreeRTOS_Queue_Processing/Third-Party/FreeRTOS/org/Source/include" -I"D:/Workspace/RTOS_workspace/STM32_FreeRTOS_Queue_Processing/Third-Party/FreeRTOS/org/Source/portable/GCC/ARM_CM4F" -I"D:/Workspace/RTOS_workspace/STM32_FreeRTOS_Queue_Processing/Third-Party/SEGGER/Config" -I"D:/Workspace/RTOS_workspace/STM32_FreeRTOS_Queue_Processing/Third-Party/SEGGER/OS" -I"D:/Workspace/RTOS_workspace/STM32_FreeRTOS_Queue_Processing/Third-Party/SEGGER/SEGGER" -I"D:/Workspace/RTOS_workspace/STM32_FreeRTOS_Queue_Processing/inc" -I"D:/Workspace/RTOS_workspace/STM32_FreeRTOS_Queue_Processing/CMSIS/device" -I"D:/Workspace/RTOS_workspace/STM32_FreeRTOS_Queue_Processing/CMSIS/core" -O0 -g3 -Wall -fmessage-length=0 -ffunction-sections -c -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: STM32_FreeRTOS_Queue_Processing.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T"D:\Workspace\RTOS_workspace\STM32_FreeRTOS_Queue_Processing\LinkerScript.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "STM32_FreeRTOS_Queue_Processing.elf" @"objects.list"   -lm
+Finished building target: STM32_FreeRTOS_Queue_Processing.elf
+ 
+make --no-print-directory post-build
+Generating binary and Printing size information:
+arm-none-eabi-objcopy -O binary "STM32_FreeRTOS_Queue_Processing.elf" "STM32_FreeRTOS_Queue_Processing.bin"
+arm-none-eabi-size "STM32_FreeRTOS_Queue_Processing.elf"
+   text	   data	    bss	    dec	    hex	filename
+  43432	   2764	  88528	 134724	  20e44	STM32_FreeRTOS_Queue_Processing.elf
+ 
+19:33:03 **** Programming project STM32_FreeRTOS_Queue_Processing on chip ****
+"D:\\Ac6\\SystemWorkbench\\plugins\\fr.ac6.mcu.externaltools.openocd.win32_1.17.0.201801120948\\tools\\openocd\\bin\\openocd.exe" -f stm32.flash.2050669680947089766.cfg -s "D:\\Workspace\\RTOS_workspace\\STM32_FreeRTOS_Queue_Processing" -s "D:\\Ac6\\SystemWorkbench\\plugins\\fr.ac6.mcu.debug_2.1.4.201801120948\\resources\\openocd\\st_scripts" -c "program Debug/STM32_FreeRTOS_Queue_Processing.elf verify reset exit" 
+Open On-Chip Debugger 0.10.0-dev-00007-g58350bc-dirty (2018-01-08-12:20)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+srst_only separate srst_nogate srst_open_drain connect_assert_srst
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+adapter speed: 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2.1 JTAG v27 API v2 M15 VID 0x0483 PID 0x374B
+Info : using stlink api v2
+Info : Target voltage: 3.248915
+Info : Stlink adapter speed set to 1800 kHz
+Info : STM32F446RETx.cpu: hardware has 6 breakpoints, 4 watchpoints
+Info : Stlink adapter speed set to 1800 kHz
+adapter speed: 1800 kHz
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08006a60 msp: 0x20020000
+configuring PLL
+Info : Stlink adapter speed set to 4000 kHz
+adapter speed: 4000 kHz
+** Programming Started **
+auto erase enabled
+Info : device id = 0x10006421
+Info : flash size = 512kbytes
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x20000046 msp: 0x20020000
+wrote 49152 bytes from file Debug/STM32_FreeRTOS_Queue_Processing.elf in 1.617093s (29.683 KiB/s)
+** Programming Finished **
+** Verify Started **
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x20020000
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x20020000
+verified 46220 bytes in 0.458026s (98.546 KiB/s)
+** Verified OK **
+** Resetting Target **
+Info : Stlink adapter speed set to 1800 kHz
+adapter speed: 1800 kHz
+shutdown command invoked
+20:39:14 **** Programming project STM32_FreeRTOS_Led_and_Button on chip ****
+"D:\\Ac6\\SystemWorkbench\\plugins\\fr.ac6.mcu.externaltools.openocd.win32_1.17.0.201801120948\\tools\\openocd\\bin\\openocd.exe" -f stm32.flash.6303835967749663409.cfg -s "D:\\Workspace\\RTOS_workspace\\STM32_FreeRTOS_Led_and_Button" -s "D:\\Ac6\\SystemWorkbench\\plugins\\fr.ac6.mcu.debug_2.1.4.201801120948\\resources\\openocd\\st_scripts" -c "program Debug/STM32_FreeRTOS_Led_and_Button.elf verify reset exit" 
+Open On-Chip Debugger 0.10.0-dev-00007-g58350bc-dirty (2018-01-08-12:20)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+srst_only separate srst_nogate srst_open_drain connect_assert_srst
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+adapter speed: 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2.1 JTAG v27 API v2 M15 VID 0x0483 PID 0x374B
+Info : using stlink api v2
+Info : Target voltage: 3.252071
+Info : Stlink adapter speed set to 1800 kHz
+Info : STM32F446RETx.cpu: hardware has 6 breakpoints, 4 watchpoints
+Info : Stlink adapter speed set to 1800 kHz
+adapter speed: 1800 kHz
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08006a68 msp: 0x20020000
+configuring PLL
+Info : Stlink adapter speed set to 4000 kHz
+adapter speed: 4000 kHz
+** Programming Started **
+auto erase enabled
+Info : device id = 0x10006421
+Info : flash size = 512kbytes
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x20000046 msp: 0x20020000
+wrote 32768 bytes from file Debug/STM32_FreeRTOS_Led_and_Button.elf in 1.122064s (28.519 KiB/s)
+** Programming Finished **
+** Verify Started **
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x20020000
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x20020000
+verified 16548 bytes in 0.231013s (69.953 KiB/s)
+** Verified OK **
+** Resetting Target **
+Info : Stlink adapter speed set to 1800 kHz
+adapter speed: 1800 kHz
+shutdown command invoked
+20:42:32 **** Programming project STM32_FreeRTOS_Led_and_Button_IT on chip ****
+"D:\\Ac6\\SystemWorkbench\\plugins\\fr.ac6.mcu.externaltools.openocd.win32_1.17.0.201801120948\\tools\\openocd\\bin\\openocd.exe" -f stm32.flash.8352899065766921752.cfg -s "D:\\Workspace\\RTOS_workspace\\STM32_FreeRTOS_Led_and_Button_IT" -s "D:\\Ac6\\SystemWorkbench\\plugins\\fr.ac6.mcu.debug_2.1.4.201801120948\\resources\\openocd\\st_scripts" -c "program Debug/STM32_FreeRTOS_Led_and_Button_IT.elf verify reset exit" 
+Open On-Chip Debugger 0.10.0-dev-00007-g58350bc-dirty (2018-01-08-12:20)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+srst_only separate srst_nogate srst_open_drain connect_assert_srst
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+adapter speed: 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2.1 JTAG v27 API v2 M15 VID 0x0483 PID 0x374B
+Info : using stlink api v2
+Info : Target voltage: 3.245759
+Info : Stlink adapter speed set to 1800 kHz
+Info : STM32F446RETx.cpu: hardware has 6 breakpoints, 4 watchpoints
+Info : Stlink adapter speed set to 1800 kHz
+adapter speed: 1800 kHz
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08003858 msp: 0x20020000
+configuring PLL
+Info : Stlink adapter speed set to 4000 kHz
+adapter speed: 4000 kHz
+** Programming Started **
+auto erase enabled
+Info : device id = 0x10006421
+Info : flash size = 512kbytes
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x20000046 msp: 0x20020000
+wrote 32768 bytes from file Debug/STM32_FreeRTOS_Led_and_Button_IT.elf in 1.104063s (28.984 KiB/s)
+** Programming Finished **
+** Verify Started **
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x20020000
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x20020000
+verified 17136 bytes in 0.247014s (67.747 KiB/s)
+** Verified OK **
+** Resetting Target **
+Info : Stlink adapter speed set to 1800 kHz
+adapter speed: 1800 kHz
+shutdown command invoked
+20:43:14 **** Programming project STM32_FreeRTOS_Tasks_Notify on chip ****
+"D:\\Ac6\\SystemWorkbench\\plugins\\fr.ac6.mcu.externaltools.openocd.win32_1.17.0.201801120948\\tools\\openocd\\bin\\openocd.exe" -f stm32.flash.929708906025661933.cfg -s "D:\\Workspace\\RTOS_workspace\\STM32_FreeRTOS_Tasks_Notify" -s "D:\\Ac6\\SystemWorkbench\\plugins\\fr.ac6.mcu.debug_2.1.4.201801120948\\resources\\openocd\\st_scripts" -c "program Debug/STM32_FreeRTOS_Tasks_Notify.elf verify reset exit" 
+Open On-Chip Debugger 0.10.0-dev-00007-g58350bc-dirty (2018-01-08-12:20)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+srst_only separate srst_nogate srst_open_drain connect_assert_srst
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+adapter speed: 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2.1 JTAG v27 API v2 M15 VID 0x0483 PID 0x374B
+Info : using stlink api v2
+Info : Target voltage: 3.252071
+Info : Stlink adapter speed set to 1800 kHz
+Info : STM32F446RETx.cpu: hardware has 6 breakpoints, 4 watchpoints
+Info : Stlink adapter speed set to 1800 kHz
+adapter speed: 1800 kHz
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08003ab0 msp: 0x20020000
+configuring PLL
+Info : Stlink adapter speed set to 4000 kHz
+adapter speed: 4000 kHz
+** Programming Started **
+auto erase enabled
+Info : device id = 0x10006421
+Info : flash size = 512kbytes
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x20000046 msp: 0x20020000
+wrote 49152 bytes from file Debug/STM32_FreeRTOS_Tasks_Notify.elf in 1.617092s (29.683 KiB/s)
+** Programming Finished **
+** Verify Started **
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x20020000
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x20020000
+verified 38644 bytes in 0.403023s (93.638 KiB/s)
+** Verified OK **
+** Resetting Target **
+Info : Stlink adapter speed set to 1800 kHz
+adapter speed: 1800 kHz
+shutdown command invoked
+20:45:45 **** Programming project STM32_FreeRTOS_Tasks_Delete on chip ****
+"D:\\Ac6\\SystemWorkbench\\plugins\\fr.ac6.mcu.externaltools.openocd.win32_1.17.0.201801120948\\tools\\openocd\\bin\\openocd.exe" -f stm32.flash.7370426016932553587.cfg -s "D:\\Workspace\\RTOS_workspace\\STM32_FreeRTOS_Tasks_Delete" -s "D:\\Ac6\\SystemWorkbench\\plugins\\fr.ac6.mcu.debug_2.1.4.201801120948\\resources\\openocd\\st_scripts" -c "program Debug/STM32_FreeRTOS_Tasks_Delete.elf verify reset exit" 
+Open On-Chip Debugger 0.10.0-dev-00007-g58350bc-dirty (2018-01-08-12:20)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+srst_only separate srst_nogate srst_open_drain connect_assert_srst
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+adapter speed: 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2.1 JTAG v27 API v2 M15 VID 0x0483 PID 0x374B
+Info : using stlink api v2
+Info : Target voltage: 3.248915
+Info : Stlink adapter speed set to 1800 kHz
+Info : STM32F446RETx.cpu: hardware has 6 breakpoints, 4 watchpoints
+Info : Stlink adapter speed set to 1800 kHz
+adapter speed: 1800 kHz
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08004e00 msp: 0x20020000
+configuring PLL
+Info : Stlink adapter speed set to 4000 kHz
+adapter speed: 4000 kHz
+** Programming Started **
+auto erase enabled
+Info : device id = 0x10006421
+Info : flash size = 512kbytes
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x20000046 msp: 0x20020000
+wrote 16384 bytes from file Debug/STM32_FreeRTOS_Tasks_Delete.elf in 0.669039s (23.915 KiB/s)
+** Programming Finished **
+** Verify Started **
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x20020000
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x20020000
+verified 10972 bytes in 0.204011s (52.521 KiB/s)
+** Verified OK **
+** Resetting Target **
+Info : Stlink adapter speed set to 1800 kHz
+adapter speed: 1800 kHz
+shutdown command invoked
+20:46:39 **** Programming project STM32_FreeRTOS_Tasks_Priority on chip ****
+"D:\\Ac6\\SystemWorkbench\\plugins\\fr.ac6.mcu.externaltools.openocd.win32_1.17.0.201801120948\\tools\\openocd\\bin\\openocd.exe" -f stm32.flash.4029565491381723878.cfg -s "D:\\Workspace\\RTOS_workspace\\STM32_FreeRTOS_Tasks_Priority" -s "D:\\Ac6\\SystemWorkbench\\plugins\\fr.ac6.mcu.debug_2.1.4.201801120948\\resources\\openocd\\st_scripts" -c "program Debug/STM32_FreeRTOS_Tasks_Priority.elf verify reset exit" 
+Open On-Chip Debugger 0.10.0-dev-00007-g58350bc-dirty (2018-01-08-12:20)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+srst_only separate srst_nogate srst_open_drain connect_assert_srst
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+adapter speed: 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2.1 JTAG v27 API v2 M15 VID 0x0483 PID 0x374B
+Info : using stlink api v2
+Info : Target voltage: 3.242603
+Info : Stlink adapter speed set to 1800 kHz
+Info : STM32F446RETx.cpu: hardware has 6 breakpoints, 4 watchpoints
+Info : Stlink adapter speed set to 1800 kHz
+adapter speed: 1800 kHz
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08002388 msp: 0x20020000
+configuring PLL
+Info : Stlink adapter speed set to 4000 kHz
+adapter speed: 4000 kHz
+** Programming Started **
+auto erase enabled
+Info : device id = 0x10006421
+Info : flash size = 512kbytes
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x20000046 msp: 0x20020000
+wrote 49152 bytes from file Debug/STM32_FreeRTOS_Tasks_Priority.elf in 1.584091s (30.301 KiB/s)
+** Programming Finished **
+** Verify Started **
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x20020000
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x20020000
+verified 38756 bytes in 0.419024s (90.323 KiB/s)
+** Verified OK **
+** Resetting Target **
+Info : Stlink adapter speed set to 1800 kHz
+adapter speed: 1800 kHz
+shutdown command invoked
+20:17:32 **** Programming project STM32_FreeRTOS_vTaskDelay on chip ****
+"D:\\Ac6\\SystemWorkbench\\plugins\\fr.ac6.mcu.externaltools.openocd.win32_1.17.0.201801120948\\tools\\openocd\\bin\\openocd.exe" -f stm32.flash.4748590152034350327.cfg -s "D:\\Workspace\\RTOS_workspace\\STM32_FreeRTOS_vTaskDelay" -s "D:\\Ac6\\SystemWorkbench\\plugins\\fr.ac6.mcu.debug_2.1.4.201801120948\\resources\\openocd\\st_scripts" -c "program Debug/STM32_FreeRTOS_vTaskDelay.elf verify reset exit" 
+Open On-Chip Debugger 0.10.0-dev-00007-g58350bc-dirty (2018-01-08-12:20)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+srst_only separate srst_nogate srst_open_drain connect_assert_srst
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+adapter speed: 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2.1 JTAG v27 API v2 M15 VID 0x0483 PID 0x374B
+Info : using stlink api v2
+Info : Target voltage: 3.242603
+Info : Stlink adapter speed set to 1800 kHz
+Info : STM32F446RETx.cpu: hardware has 6 breakpoints, 4 watchpoints
+Info : Stlink adapter speed set to 1800 kHz
+adapter speed: 1800 kHz
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08004e54 msp: 0x20020000
+configuring PLL
+Info : Stlink adapter speed set to 4000 kHz
+adapter speed: 4000 kHz
+** Programming Started **
+auto erase enabled
+Info : device id = 0x10006421
+Info : flash size = 512kbytes
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x20000046 msp: 0x20020000
+wrote 49152 bytes from file Debug/STM32_FreeRTOS_vTaskDelay.elf in 1.651095s (29.072 KiB/s)
+** Programming Finished **
+** Verify Started **
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x20020000
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x20020000
+verified 37684 bytes in 0.408024s (90.193 KiB/s)
+** Verified OK **
+** Resetting Target **
+Info : Stlink adapter speed set to 1800 kHz
+adapter speed: 1800 kHz
+shutdown command invoked
+20:22:01 **** Programming project STM32_FreeRTOS_Tasks_Priority on chip ****
+"D:\\Ac6\\SystemWorkbench\\plugins\\fr.ac6.mcu.externaltools.openocd.win32_1.17.0.201801120948\\tools\\openocd\\bin\\openocd.exe" -f stm32.flash.3095740403875013214.cfg -s "D:\\Workspace\\RTOS_workspace\\STM32_FreeRTOS_Tasks_Priority" -s "D:\\Ac6\\SystemWorkbench\\plugins\\fr.ac6.mcu.debug_2.1.4.201801120948\\resources\\openocd\\st_scripts" -c "program Debug/STM32_FreeRTOS_Tasks_Priority.elf verify reset exit" 
+Open On-Chip Debugger 0.10.0-dev-00007-g58350bc-dirty (2018-01-08-12:20)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+srst_only separate srst_nogate srst_open_drain connect_assert_srst
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+adapter speed: 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2.1 JTAG v27 API v2 M15 VID 0x0483 PID 0x374B
+Info : using stlink api v2
+Info : Target voltage: 3.248915
+Info : Stlink adapter speed set to 1800 kHz
+Info : STM32F446RETx.cpu: hardware has 6 breakpoints, 4 watchpoints
+Info : Stlink adapter speed set to 1800 kHz
+adapter speed: 1800 kHz
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08004a5c msp: 0x20020000
+configuring PLL
+Info : Stlink adapter speed set to 4000 kHz
+adapter speed: 4000 kHz
+** Programming Started **
+auto erase enabled
+Info : device id = 0x10006421
+Info : flash size = 512kbytes
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x20000046 msp: 0x20020000
+wrote 49152 bytes from file Debug/STM32_FreeRTOS_Tasks_Priority.elf in 1.543088s (31.106 KiB/s)
+** Programming Finished **
+** Verify Started **
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x20020000
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x20020000
+verified 38756 bytes in 0.404023s (93.677 KiB/s)
+** Verified OK **
+** Resetting Target **
+Info : Stlink adapter speed set to 1800 kHz
+adapter speed: 1800 kHz
+shutdown command invoked
+20:26:01 **** Programming project STM32_FreeRTOS_Tasks_Notify on chip ****
+"D:\\Ac6\\SystemWorkbench\\plugins\\fr.ac6.mcu.externaltools.openocd.win32_1.17.0.201801120948\\tools\\openocd\\bin\\openocd.exe" -f stm32.flash.7450783995343825531.cfg -s "D:\\Workspace\\RTOS_workspace\\STM32_FreeRTOS_Tasks_Notify" -s "D:\\Ac6\\SystemWorkbench\\plugins\\fr.ac6.mcu.debug_2.1.4.201801120948\\resources\\openocd\\st_scripts" -c "program Debug/STM32_FreeRTOS_Tasks_Notify.elf verify reset exit" 
+Open On-Chip Debugger 0.10.0-dev-00007-g58350bc-dirty (2018-01-08-12:20)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+srst_only separate srst_nogate srst_open_drain connect_assert_srst
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+adapter speed: 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2.1 JTAG v27 API v2 M15 VID 0x0483 PID 0x374B
+Info : using stlink api v2
+Info : Target voltage: 3.248915
+Info : Stlink adapter speed set to 1800 kHz
+Info : STM32F446RETx.cpu: hardware has 6 breakpoints, 4 watchpoints
+Info : Stlink adapter speed set to 1800 kHz
+adapter speed: 1800 kHz
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08004e54 msp: 0x20020000
+configuring PLL
+Info : Stlink adapter speed set to 4000 kHz
+adapter speed: 4000 kHz
+** Programming Started **
+auto erase enabled
+Info : device id = 0x10006421
+Info : flash size = 512kbytes
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x20000046 msp: 0x20020000
+wrote 49152 bytes from file Debug/STM32_FreeRTOS_Tasks_Notify.elf in 1.649094s (29.107 KiB/s)
+** Programming Finished **
+** Verify Started **
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x20020000
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x20020000
+verified 38644 bytes in 0.407023s (92.718 KiB/s)
+** Verified OK **
+** Resetting Target **
+Info : Stlink adapter speed set to 1800 kHz
+adapter speed: 1800 kHz
+shutdown command invoked
+20:30:26 **** Programming project STM32_FreeRTOS_Tasks_Delete on chip ****
+"D:\\Ac6\\SystemWorkbench\\plugins\\fr.ac6.mcu.externaltools.openocd.win32_1.17.0.201801120948\\tools\\openocd\\bin\\openocd.exe" -f stm32.flash.6377339347899434710.cfg -s "D:\\Workspace\\RTOS_workspace\\STM32_FreeRTOS_Tasks_Delete" -s "D:\\Ac6\\SystemWorkbench\\plugins\\fr.ac6.mcu.debug_2.1.4.201801120948\\resources\\openocd\\st_scripts" -c "program Debug/STM32_FreeRTOS_Tasks_Delete.elf verify reset exit" 
+Open On-Chip Debugger 0.10.0-dev-00007-g58350bc-dirty (2018-01-08-12:20)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+srst_only separate srst_nogate srst_open_drain connect_assert_srst
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+adapter speed: 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2.1 JTAG v27 API v2 M15 VID 0x0483 PID 0x374B
+Info : using stlink api v2
+Info : Target voltage: 3.253649
+Info : Stlink adapter speed set to 1800 kHz
+Info : STM32F446RETx.cpu: hardware has 6 breakpoints, 4 watchpoints
+Info : Stlink adapter speed set to 1800 kHz
+adapter speed: 1800 kHz
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08004e00 msp: 0x20020000
+configuring PLL
+Info : Stlink adapter speed set to 4000 kHz
+adapter speed: 4000 kHz
+** Programming Started **
+auto erase enabled
+Info : device id = 0x10006421
+Info : flash size = 512kbytes
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x20000046 msp: 0x20020000
+wrote 16384 bytes from file Debug/STM32_FreeRTOS_Tasks_Delete.elf in 0.661038s (24.204 KiB/s)
+** Programming Finished **
+** Verify Started **
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x20020000
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x20020000
+verified 10972 bytes in 0.215012s (49.834 KiB/s)
+** Verified OK **
+** Resetting Target **
+Info : Stlink adapter speed set to 1800 kHz
+adapter speed: 1800 kHz
+shutdown command invoked
+20:32:58 **** Programming project STM32_FreeRTOS_Queue_Processing on chip ****
+"D:\\Ac6\\SystemWorkbench\\plugins\\fr.ac6.mcu.externaltools.openocd.win32_1.17.0.201801120948\\tools\\openocd\\bin\\openocd.exe" -f stm32.flash.423890068958362374.cfg -s "D:\\Workspace\\RTOS_workspace\\STM32_FreeRTOS_Queue_Processing" -s "D:\\Ac6\\SystemWorkbench\\plugins\\fr.ac6.mcu.debug_2.1.4.201801120948\\resources\\openocd\\st_scripts" -c "program Debug/STM32_FreeRTOS_Queue_Processing.elf verify reset exit" 
+Open On-Chip Debugger 0.10.0-dev-00007-g58350bc-dirty (2018-01-08-12:20)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+srst_only separate srst_nogate srst_open_drain connect_assert_srst
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+adapter speed: 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2.1 JTAG v27 API v2 M15 VID 0x0483 PID 0x374B
+Info : using stlink api v2
+Info : Target voltage: 3.252071
+Info : Stlink adapter speed set to 1800 kHz
+Info : STM32F446RETx.cpu: hardware has 6 breakpoints, 4 watchpoints
+Info : Stlink adapter speed set to 1800 kHz
+adapter speed: 1800 kHz
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08002388 msp: 0x20020000
+configuring PLL
+Info : Stlink adapter speed set to 4000 kHz
+adapter speed: 4000 kHz
+** Programming Started **
+auto erase enabled
+Info : device id = 0x10006421
+Info : flash size = 512kbytes
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x20000046 msp: 0x20020000
+wrote 49152 bytes from file Debug/STM32_FreeRTOS_Queue_Processing.elf in 1.629093s (29.464 KiB/s)
+** Programming Finished **
+** Verify Started **
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x20020000
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x20020000
+verified 46220 bytes in 0.442025s (102.113 KiB/s)
+** Verified OK **
+** Resetting Target **
+Info : Stlink adapter speed set to 1800 kHz
+adapter speed: 1800 kHz
+shutdown command invoked
+20:38:50 **** Programming project STM32_FreeRTOS_Led_and_Button on chip ****
+"D:\\Ac6\\SystemWorkbench\\plugins\\fr.ac6.mcu.externaltools.openocd.win32_1.17.0.201801120948\\tools\\openocd\\bin\\openocd.exe" -f stm32.flash.7322595914004858876.cfg -s "D:\\Workspace\\RTOS_workspace\\STM32_FreeRTOS_Led_and_Button" -s "D:\\Ac6\\SystemWorkbench\\plugins\\fr.ac6.mcu.debug_2.1.4.201801120948\\resources\\openocd\\st_scripts" -c "program Debug/STM32_FreeRTOS_Led_and_Button.elf verify reset exit" 
+Open On-Chip Debugger 0.10.0-dev-00007-g58350bc-dirty (2018-01-08-12:20)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+srst_only separate srst_nogate srst_open_drain connect_assert_srst
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+adapter speed: 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2.1 JTAG v27 API v2 M15 VID 0x0483 PID 0x374B
+Info : using stlink api v2
+Info : Target voltage: 3.252071
+Info : Stlink adapter speed set to 1800 kHz
+Info : STM32F446RETx.cpu: hardware has 6 breakpoints, 4 watchpoints
+Info : Stlink adapter speed set to 1800 kHz
+adapter speed: 1800 kHz
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08006a68 msp: 0x20020000
+configuring PLL
+Info : Stlink adapter speed set to 4000 kHz
+adapter speed: 4000 kHz
+** Programming Started **
+auto erase enabled
+Info : device id = 0x10006421
+Info : flash size = 512kbytes
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x20000046 msp: 0x20020000
+wrote 32768 bytes from file Debug/STM32_FreeRTOS_Led_and_Button.elf in 1.090063s (29.356 KiB/s)
+** Programming Finished **
+** Verify Started **
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x20020000
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x20020000
+verified 16548 bytes in 0.251015s (64.379 KiB/s)
+** Verified OK **
+** Resetting Target **
+Info : Stlink adapter speed set to 1800 kHz
+adapter speed: 1800 kHz
+shutdown command invoked
+20:39:44 **** Programming project STM32_FreeRTOS_Led_and_Button_IT on chip ****
+"D:\\Ac6\\SystemWorkbench\\plugins\\fr.ac6.mcu.externaltools.openocd.win32_1.17.0.201801120948\\tools\\openocd\\bin\\openocd.exe" -f stm32.flash.8126018228547505348.cfg -s "D:\\Workspace\\RTOS_workspace\\STM32_FreeRTOS_Led_and_Button_IT" -s "D:\\Ac6\\SystemWorkbench\\plugins\\fr.ac6.mcu.debug_2.1.4.201801120948\\resources\\openocd\\st_scripts" -c "program Debug/STM32_FreeRTOS_Led_and_Button_IT.elf verify reset exit" 
+Open On-Chip Debugger 0.10.0-dev-00007-g58350bc-dirty (2018-01-08-12:20)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+srst_only separate srst_nogate srst_open_drain connect_assert_srst
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+adapter speed: 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2.1 JTAG v27 API v2 M15 VID 0x0483 PID 0x374B
+Info : using stlink api v2
+Info : Target voltage: 3.248915
+Info : Stlink adapter speed set to 1800 kHz
+Info : STM32F446RETx.cpu: hardware has 6 breakpoints, 4 watchpoints
+Info : Stlink adapter speed set to 1800 kHz
+adapter speed: 1800 kHz
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08003858 msp: 0x20020000
+configuring PLL
+Info : Stlink adapter speed set to 4000 kHz
+adapter speed: 4000 kHz
+** Programming Started **
+auto erase enabled
+Info : device id = 0x10006421
+Info : flash size = 512kbytes
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x20000046 msp: 0x20020000
+wrote 32768 bytes from file Debug/STM32_FreeRTOS_Led_and_Button_IT.elf in 1.041060s (30.738 KiB/s)
+** Programming Finished **
+** Verify Started **
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x20020000
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x20020000
+verified 17136 bytes in 0.240014s (69.722 KiB/s)
+** Verified OK **
+** Resetting Target **
+Info : Stlink adapter speed set to 1800 kHz
+adapter speed: 1800 kHz
+shutdown command invoked
+11:27:55 **** Clean-only build of configuration Debug for project STM32_FreeRTOS_Bin_Sema_IT_Task ****
+make -j4 clean 
+rm -rf *
+ 
+11:27:58 **** Clean-only build of configuration Debug for project STM32_FreeRTOS_Bin_Sema_Tasks ****
+make -j4 clean 
+rm -rf *
+ 
+11:27:59 **** Clean-only build of configuration Debug for project STM32_FreeRTOS_Cnt_Sema_Tasks ****
+make -j4 clean 
+rm -rf *
+ 
+11:27:59 **** Clean-only build of configuration Debug for project STM32_FreeRTOS_Idle_Hook_Power_Saving ****
+make -j4 clean 
+rm -rf *
+ 
+11:28:00 **** Clean-only build of configuration Debug for project STM32_FreeRTOS_Led_and_Button ****
+make -j4 clean 
+rm -rf *
+ 
+11:28:01 **** Clean-only build of configuration Debug for project STM32_FreeRTOS_Led_and_Button_IT ****
+make -j4 clean 
+rm -rf *
+ 
+11:28:02 **** Clean-only build of configuration Debug for project STM32_FreeRTOS_MutexAPI ****
+make -j4 clean 
+rm -rf *
+ 
+11:28:02 **** Clean-only build of configuration Debug for project STM32_FreeRTOS_Mutex_using_Bin_Sema ****
+make -j4 clean 
+rm -rf *
+ 
+11:28:03 **** Clean-only build of configuration Debug for project STM32_FreeRTOS_Queue_Processing ****
+make -j4 clean 
+rm -rf *
+ 
+11:28:03 **** Clean-only build of configuration Debug for project STM32_FreeRTOS_Tasks_Delete ****
+make -j4 clean 
+rm -rf *
+ 
+11:28:04 **** Clean-only build of configuration Debug for project STM32_FreeRTOS_Tasks_Notify ****
+make -j4 clean 
+rm -rf *
+ 
+11:28:05 **** Clean-only build of configuration Debug for project STM32_FreeRTOS_Tasks_Priority ****
+make -j4 clean 
+rm -rf *
+ 
+11:28:06 **** Clean-only build of configuration Debug for project STM32_FreeRTOS_vTaskDelay ****
+make -j4 clean 
+rm -rf *
+ 
+11:28:06 **** Clean-only build of configuration Debug for project STM32_HelloWorld ****
+make -j4 clean 
+rm -rf *
+ 

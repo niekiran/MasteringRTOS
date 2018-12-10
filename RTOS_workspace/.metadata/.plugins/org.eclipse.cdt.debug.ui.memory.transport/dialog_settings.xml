@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="IMPORT_DIALOG">
+		<item value="0x20013654" key="Start"/>
+		<item value="0x20013654" key="Initial address"/>
+	</section>
+	<section name="EXPORT_DIALOG">
+		<item value="0x20013654" key="Start"/>
+		<item value="0x20015026" key="End"/>
+		<item value="D:\Workspace\RTOS_workspace\STM32_HelloWorld\Segger_mem_dumps\16pm.SVdat" key="File"/>
+		<item value="rawbinary" key="SELECTED_EXPORTER"/>
+		<item value="0x20013654" key="Initial address"/>
+	</section>
+</section>

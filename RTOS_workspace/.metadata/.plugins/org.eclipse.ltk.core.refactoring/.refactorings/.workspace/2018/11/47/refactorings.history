@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;STM32_FreeRTOS_CMD_Processing&apos;" deleteContents="true" description="Delete resource &apos;STM32_FreeRTOS_CMD_Processing&apos;" element1="/STM32_FreeRTOS_CMD_Processing" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1542639545643"/>
+</session>

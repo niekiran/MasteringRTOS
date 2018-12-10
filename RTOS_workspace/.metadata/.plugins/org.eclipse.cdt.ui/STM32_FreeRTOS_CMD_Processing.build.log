@@ -1,0 +1,20 @@
+19:09:06 **** Incremental Build of configuration Debug for project STM32_FreeRTOS_CMD_Processing ****
+make -j4 all 
+Building file: ../src/main.c
+Invoking: MCU GCC Compiler
+D:\Workspace\RTOS_workspace\STM32_FreeRTOS_CMD_Processing\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -DDEBUG -DSTM32F446xx -DUSE_STDPERIPH_DRIVER -I"D:/Workspace/RTOS_workspace/STM32_FreeRTOS_CMD_Processing/StdPeriph_Driver/inc" -I"D:/Workspace/RTOS_workspace/STM32_FreeRTOS_CMD_Processing/Config" -I"D:/Workspace/RTOS_workspace/STM32_FreeRTOS_CMD_Processing/Third-Party/FreeRTOS/org/Source/include" -I"D:/Workspace/RTOS_workspace/STM32_FreeRTOS_CMD_Processing/Third-Party/FreeRTOS/org/Source/portable/GCC/ARM_CM4F" -I"D:/Workspace/RTOS_workspace/STM32_FreeRTOS_CMD_Processing/inc" -I"D:/Workspace/RTOS_workspace/STM32_FreeRTOS_CMD_Processing/CMSIS/device" -I"D:/Workspace/RTOS_workspace/STM32_FreeRTOS_CMD_Processing/CMSIS/core" -O0 -g3 -Wall -fmessage-length=0 -ffunction-sections -c -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: STM32_FreeRTOS_CMD_Processing.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T"D:\Workspace\RTOS_workspace\STM32_FreeRTOS_CMD_Processing\LinkerScript.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "STM32_FreeRTOS_CMD_Processing.elf" @"objects.list"   -lm
+src/main.o: In function `main':
+D:\Workspace\RTOS_workspace\STM32_FreeRTOS_CMD_Processing\Debug/../src/main.c:118: undefined reference to `vTask2_menu_display'
+D:\Workspace\RTOS_workspace\STM32_FreeRTOS_CMD_Processing\Debug/../src/main.c:118: undefined reference to `vTask3_uart_write'
+collect2.exe: error: ld returned 1 exit status
+makefile:38: recipe for target 'STM32_FreeRTOS_CMD_Processing.elf' failed
+make: *** [STM32_FreeRTOS_CMD_Processing.elf] Error 1
+
+19:09:08 Build Finished (took 1s.679ms)
+

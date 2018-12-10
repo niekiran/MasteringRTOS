@@ -1,0 +1,7 @@
+11:28:00 **** Clean-only build of configuration Debug for project STM32_FreeRTOS_Led_and_Button ****
+make -j4 clean 
+rm -rf *
+ 
+
+11:28:01 Build Finished (took 595ms)
+

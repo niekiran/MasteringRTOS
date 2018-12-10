@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="PatchWizard">
+		<item value="716" key="DIALOG_WIDTH"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="" key="PatchWizardPage1.WORKSPACE_PATH"/>
+		<item value="2" key="PatchWizardPage1.INPUT_METHOD"/>
+		<item value="D:\Workspace\RTOS_workspace\STM32_HelloWorld\Third-Party\SEGGER\Patch\FreeRTOSv10.1.1\FreeRTOSV10_Core.patch" key="PatchWizardPage1.PATCH_FILES"/>
+		<item value="680" key="DIALOG_HEIGHT"/>
+		<item value="290" key="DIALOG_X_ORIGIN"/>
+		<item value="8" key="DIALOG_Y_ORIGIN"/>
+		<list key="PatchWizardPage1.PATCH_FILES">
+			<item value="D:\Workspace\RTOS_workspace\STM32_HelloWorld\Third-Party\SEGGER\Patch\FreeRTOSv10.1.1\FreeRTOSV10_Core.patch"/>
+		</list>
+		<list key="PatchWizardPage1.PATCH_URLS">
+			<item value=""/>
+		</list>
+	</section>
+	<section name="PreviewPatchPage">
+		<item value="true" key="expandPatchOptions"/>
+		<item value="false" key="generateRejects"/>
+	</section>
+</section>

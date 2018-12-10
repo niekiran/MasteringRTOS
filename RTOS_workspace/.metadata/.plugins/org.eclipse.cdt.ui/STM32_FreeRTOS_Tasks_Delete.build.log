@@ -1,0 +1,7 @@
+11:28:03 **** Clean-only build of configuration Debug for project STM32_FreeRTOS_Tasks_Delete ****
+make -j4 clean 
+rm -rf *
+ 
+
+11:28:04 Build Finished (took 401ms)
+

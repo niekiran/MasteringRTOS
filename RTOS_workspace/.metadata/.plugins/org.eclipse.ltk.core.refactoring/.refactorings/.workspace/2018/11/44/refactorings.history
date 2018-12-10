@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;STM32_FreeRTOS_Led_and_Button/Third-Party/SEGGER&apos;" deleteContents="false" description="Delete resource &apos;STM32_FreeRTOS_Led_and_Button/Third-Party/SEGGER&apos;" element1="/STM32_FreeRTOS_Led_and_Button/Third-Party/SEGGER" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1541238086267"/>
+</session>
