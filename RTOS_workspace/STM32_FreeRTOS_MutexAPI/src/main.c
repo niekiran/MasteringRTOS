@@ -5,7 +5,7 @@
 #include<string.h>
 
 //MUTEX switch : un comment the below line to use mutex
-#define USE_MUTEX
+//#define USE_MUTEX
 
 /* FreeRTOS includes. */
 #include "FreeRTOS.h"
