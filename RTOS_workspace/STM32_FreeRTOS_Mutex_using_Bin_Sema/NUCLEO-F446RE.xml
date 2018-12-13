@@ -12,8 +12,8 @@
 <targetDefinitions>
   <board id="nucleo-f446re">
     <name>NUCLEO-F446RE</name>
-    <dbgIF>SWD</dbgIF>
     <dbgIF>JTAG</dbgIF>
+    <dbgIF>SWD</dbgIF>
     <dbgDEV>ST-Link</dbgDEV>
     <mcuId>stm32f446retx</mcuId>
   </board>

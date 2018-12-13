@@ -63,14 +63,12 @@ int main( void )
 	printmsg(usr_msg);
 
 
-    /* Before a semaphore is used it must be explicitly created.  In this example a binary semaphore is created . */
+    /* Before a semaphore is used it must be explicitly created.
+     * In this example a binary semaphore is created . */
     vSemaphoreCreateBinary( xWork );
 
 	/* The queue is created to hold a maximum of 1 Element. */
     xWorkQueue = xQueueCreate( 1, sizeof( unsigned int ) );
-
-	/* The tasks are going to use a pseudo random delay, seed the random number generator. */
-	srand( 567 );
 
     /* Check the semaphore and queue was created successfully. */
     if( (xWork != NULL) && (xWorkQueue != NULL) )
@@ -137,6 +135,7 @@ void EmployeeDoWork(unsigned char TicketId)
 	/* implement the work according to TickedID */
 	sprintf(usr_msg,"Employee task : Working on Ticked id : %d\r\n",TicketId);
 	printmsg(usr_msg);
+	vTaskDelay(TicketId);
 }
 
 static void vEmployeeTask( void *pvParameters )
@@ -150,7 +149,7 @@ static void vEmployeeTask( void *pvParameters )
 		/* First Employee tries to take the semaphore, if it is available that means there is a task assigned by manager, otherwise employee task will be blocked */
 		xSemaphoreTake( xWork, 0 );
 
-		/*if we are here means, Semaphore take is successful . So, get the ticket id from the work queue */
+		/* get the ticket id from the work queue */
 		xStatus = xQueueReceive( xWorkQueue, &xWorkTicketId, 0 );
 
 		if( xStatus == pdPASS )

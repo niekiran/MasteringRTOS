@@ -4,6 +4,9 @@
 #include <stdlib.h>
 #include<string.h>
 
+//MUTEX switch : un comment the below line to use mutex
+#define USE_MUTEX
+
 /* FreeRTOS includes. */
 #include "FreeRTOS.h"
 #include "task.h"
@@ -34,10 +37,11 @@ static void prvNewPrintString( const portCHAR *pcString );
 
 /*-----------------------------------------------------------*/
 
+#ifdef USE_MUTEX
 /* Declare a variable of type xSemaphoreHandle.  This is used to reference the
-mutex type semaphore that is used to ensure mutual exclusive access to stdout. */
+mutex type semaphore that is used to ensure mutual exclusive access to UART. */
 xSemaphoreHandle xMutex;
-
+#endif
 
 
 int main( void )
@@ -62,17 +66,21 @@ int main( void )
 	sprintf(usr_msg,"Demo of mutual exclusion using Mutex APIs\r\n");
 	printmsg(usr_msg);
 
+#ifdef USE_MUTEX
     /* Before a semaphore is used it must be explicitly created.  In this example
 	a mutex type semaphore is created. */
     xMutex = xSemaphoreCreateMutex();
+#endif
 
 	/* The tasks are going to use a pseudo random delay, seed the random number
 	generator. */
 	srand( 567 );
 
+#ifdef USE_MUTEX
 	/* Only create the tasks if the semaphore was created successfully. */
 	if( xMutex != NULL )
 	{
+#endif
 		/* Create two instances of the tasks that attempt to write stdout.  The
 		string they attempt to write is passed in as the task parameter.  The tasks
 		are created at different priorities so some pre-emption will occur. */
@@ -81,8 +89,9 @@ int main( void )
 
 		/* Start the scheduler so the created tasks start executing. */
 		vTaskStartScheduler();
+#ifdef USE_MUTEX
 	}
-
+#endif
     /* If all is well we will never reach here as the scheduler will now be
     running the tasks.  If we do reach here then it is likely that there was
     insufficient heap memory available for a resource to be created. */
@@ -94,6 +103,7 @@ static void prvNewPrintString( const portCHAR *pcString )
 {
 static char cBuffer[ mainMAX_MSG_LEN ];
 
+#ifdef USE_MUTEX
 	/* The semaphore is created before the scheduler is started so already
 	exists by the time this task executes.
 
@@ -105,12 +115,16 @@ static char cBuffer[ mainMAX_MSG_LEN ];
 	case standard out. */
 	xSemaphoreTake( xMutex, portMAX_DELAY );
 	{
+#endif
 		/* The following line will only execute once the semaphore has been
 		successfully obtained - so standard out can be accessed freely. */
 		sprintf( cBuffer, "%s", pcString );
 		printmsg(cBuffer);
+#ifdef USE_MUTEX
 	}
 	xSemaphoreGive( xMutex );
+#endif
+
 }
 /*-----------------------------------------------------------*/
 

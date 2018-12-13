@@ -54,32 +54,34 @@ int main( void )
 	sprintf(usr_msg,"Demo of Mutual exclusion using binary semaphore\r\n");
 	printmsg(usr_msg);
 
+	//Creating a binary semaphore
+	vSemaphoreCreateBinary(xBinarySemaphore);
 
-	// first lets create the binary semaphore.
-	vSemaphoreCreateBinary( xBinarySemaphore );
+	 if(xBinarySemaphore != NULL)
+	 {
+			/* Create one of the two tasks. */
+			xTaskCreate(	vTask1,		/* Pointer to the function that implements the task. */
+							"Task 1",	/* Text name for the task.  This is to facilitate debugging only. */
+							500,		/* Stack depth in words. */
+							NULL,		/* We are not using the task parameter. */
+							1,			/* This task will run at priority 1. */
+							NULL );		/* We are not using the task handle. */
 
-	if(xBinarySemaphore != NULL)
-	{
-		/* Create one of the two tasks. */
-		xTaskCreate(	vTask1,		/* Pointer to the function that implements the task. */
-						"Task 1",	/* Text name for the task.  This is to facilitate debugging only. */
-						500,		/* Stack depth in words. */
-						NULL,		/* We are not using the task parameter. */
-						1,			/* This task will run at priority 1. */
-						NULL );		/* We are not using the task handle. */
+			/* Create the other task in exactly the same way. */
+			xTaskCreate( vTask2, "Task 2", 500, NULL, 1, NULL );
 
-		/* Create the other task in exactly the same way. */
-		xTaskCreate( vTask2, "Task 2", 500, NULL, 1, NULL );
+			//makes sema available for the first time
+			xSemaphoreGive(xBinarySemaphore);
 
-		/* Start the scheduler so our tasks start executing. */
-		vTaskStartScheduler();
-	}
-	else
-	{
+			/* Start the scheduler so our tasks start executing. */
+			vTaskStartScheduler();
+	 }else
+	 {
+		 sprintf(usr_msg,"binary semaphore creation failed\r\n");
+		 printmsg(usr_msg);
 
-		sprintf(usr_msg,"binary semaphore creation failed\r\n");
-		printmsg(usr_msg);
-	}
+	 }
+
 
 	/* If all is well we will never reach here as the scheduler will now be
 	running.  If we do reach here then it is likely that there was insufficient
@@ -95,16 +97,19 @@ void vTask1( void *pvParameters )
 	/* As per most tasks, this task is implemented in an infinite loop. */
 	for( ;; )
 	{
+
 		//before printing , lets own the semaphore or take the semaphore */
-		xSemaphoreTake( xBinarySemaphore, 0 );
+		xSemaphoreTake( xBinarySemaphore, portMAX_DELAY );
+
 		/* Print out the name of this task. */
 		sprintf( usr_msg,"%s",pcTaskName);
 		printmsg(usr_msg);
-		//our printing is done, so lets give the semaphore */
-		xSemaphoreGive( xBinarySemaphore );
+
+		//give the semaphore here. give operation increases the bin sema value back to 1
+		xSemaphoreGive(xBinarySemaphore);
 
 		/*Now this task will be blocked for 500ticks */
-		vTaskDelay( 500 / portTICK_RATE_MS );
+		vTaskDelay( pdMS_TO_TICKS(500) );
 	}
 }
 /*-----------------------------------------------------------*/
@@ -117,16 +122,19 @@ void vTask2( void *pvParameters )
 	/* As per most tasks, this task is implemented in an infinite loop. */
 	for( ;; )
 	{
-	   //before printing , lets own the semaphore or take the semaphore */
-	   xSemaphoreTake( xBinarySemaphore, 0 );
-	   /* Print out the name of this task. */
-	   sprintf( usr_msg,"%s",pcTaskName);
-	   printmsg(usr_msg);
-	   //our printing is done, so lets give the semaphore */
-	   xSemaphoreGive( xBinarySemaphore );
+
+		//before printing , lets own the semaphore or take the semaphore */
+		xSemaphoreTake( xBinarySemaphore, portMAX_DELAY );
+
+		/* Print out the name of this task. */
+		sprintf( usr_msg,"%s",pcTaskName);
+		printmsg(usr_msg);
+
+		//give the semaphore here. give operation increases the bin sema value back to 1
+		xSemaphoreGive(xBinarySemaphore);
 
 		/*Now this task will be blocked for 500ticks */
-		vTaskDelay( 500 / portTICK_RATE_MS );
+		vTaskDelay( pdMS_TO_TICKS(500));
 	}
 }
 

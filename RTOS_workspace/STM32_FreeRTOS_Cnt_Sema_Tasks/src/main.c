@@ -79,12 +79,12 @@ int main( void )
 		with the interrupt.  The handler task is created with a high priority to
 		ensure it runs immediately after the interrupt exits.  In this case a
 		priority of 3 is chosen. */
-		xTaskCreate( vHandlerTask, "Handler", 500, NULL, 3, NULL );
+		xTaskCreate( vHandlerTask, "Handler", 500, NULL, 1, NULL );
 
 		/* Create the task that will periodically generate a software interrupt.
 		This is created with a priority below the handler task to ensure it will
 		get preempted each time the handler task exist the Blocked state. */
-		xTaskCreate( vPeriodicTask, "Periodic", 500, NULL, 1, NULL );
+		xTaskCreate( vPeriodicTask, "Periodic", 500, NULL, 3, NULL );
 
 		/* Start the scheduler so the created tasks start executing. */
 		vTaskStartScheduler();
@@ -111,7 +111,7 @@ static void vHandlerTask( void *pvParameters )
 
 		/* To get here the event must have occurred.  Process the event (in this
 		case we just print out a message). */
-		sprintf(usr_msg, "Handler task - Processing event %d.\r\n");
+		sprintf(usr_msg, "Handler task - Processing event.\r\n");
 		printmsg(usr_msg);
 	}
 }
@@ -124,7 +124,7 @@ static void vPeriodicTask( void *pvParameters )
 	{
 		/* This task is just used to 'simulate' an interrupt.  This is done by
 		periodically generating a software interrupt. */
-		vTaskDelay( 500 / portTICK_RATE_MS );
+		vTaskDelay( pdMS_TO_TICKS(500) );
 
 		/* Generate the interrupt, printing a message both before hand and
 		afterwards so the sequence of execution is evident from the output. */
@@ -137,7 +137,6 @@ static void vPeriodicTask( void *pvParameters )
         sprintf(usr_msg, "Periodic task - Resuming.\r\n" );
         printmsg(usr_msg);
 
-		printmsg(usr_msg);
 	}
 }
 /*-----------------------------------------------------------*/
@@ -167,7 +166,7 @@ void EXTI15_10_IRQHandler( void )
 	events getting lost.  This simulates multiple interrupts being taken by the
 	processor, even though in this case the events are simulated within a single
 	interrupt occurrence.*/
-	sprintf(usr_msg,"==>Button_Handle\r\n");
+	sprintf(usr_msg,"==>Button_Handler\r\n");
 	printmsg(usr_msg);
 
 	xSemaphoreGiveFromISR( xCountingSemaphore, &xHigherPriorityTaskWoken );
