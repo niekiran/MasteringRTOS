@@ -1,4 +1,0 @@
-/*
- * The freertos folder contains a modified image of the FreeRTOS.org V7.3.0 to
- * fit with the Atmel Software Framework release.
- */
