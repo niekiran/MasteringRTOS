@@ -1,0 +1,10 @@
+../Thirdparty/FreeRTOS/portable/MemMang/heap_4.c:173:8:pvPortMalloc	26
+../Thirdparty/FreeRTOS/portable/MemMang/heap_4.c:348:6:vPortFree	9
+../Thirdparty/FreeRTOS/portable/MemMang/heap_4.c:407:8:xPortGetFreeHeapSize	1
+../Thirdparty/FreeRTOS/portable/MemMang/heap_4.c:413:8:xPortGetMinimumEverFreeHeapSize	1
+../Thirdparty/FreeRTOS/portable/MemMang/heap_4.c:419:6:vPortInitialiseBlocks	1
+../Thirdparty/FreeRTOS/portable/MemMang/heap_4.c:425:8:pvPortCalloc	5
+../Thirdparty/FreeRTOS/portable/MemMang/heap_4.c:444:13:prvHeapInit	2
+../Thirdparty/FreeRTOS/portable/MemMang/heap_4.c:492:13:prvInsertBlockIntoFreeList	10
+../Thirdparty/FreeRTOS/portable/MemMang/heap_4.c:560:6:vPortGetHeapStats	5
+../Thirdparty/FreeRTOS/portable/MemMang/heap_4.c:617:6:vPortHeapResetState	1

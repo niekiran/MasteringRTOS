@@ -1,0 +1,5 @@
+../Thirdparty/FreeRTOS/list.c:49:6:vListInitialise	16	static
+../Thirdparty/FreeRTOS/list.c:89:6:vListInitialiseItem	16	static
+../Thirdparty/FreeRTOS/list.c:105:6:vListInsertEnd	24	static
+../Thirdparty/FreeRTOS/list.c:139:6:vListInsert	24	static
+../Thirdparty/FreeRTOS/list.c:215:13:uxListRemove	24	static
